@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
-    name: {
+    firstName: {
+      type: String,
+      required: "This field is required.",
+    }, 
+    lastName: {
       type: String,
       required: "This field is required.",
     }, 

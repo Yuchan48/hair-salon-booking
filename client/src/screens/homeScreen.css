@@ -1,0 +1,119 @@
+.home-container {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  margin-left: 0;
+  position: relative;
+  overflow-x: hidden;
+  
+}
+
+.top {
+  width: 100vw;
+  height: 40vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.top::after {
+  content: "";
+  background: url("../product_image/hair-main.jpg") bottom center no-repeat;
+  background-position: 20% 70%;
+  background-size: cover;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+
+.jumbo {
+  
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.top .jumbo h1 {
+  
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.jumbo button {
+  padding: calc(5px + 0.5vw) calc(6px + 2.5vw);
+  font-size: calc(12px + 0.5vw);
+}
+
+/* bottom */
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  margin-bottom: 0;
+}
+
+.bottom .bottom-left {
+  width: 50vw;
+  min-height: 50vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bottom .bottom-left .description {
+  width: 80%;
+}
+
+.bottom-left p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.home-container .bottom .bottom-right {
+  width: 50vw;
+  height: 50vh;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bottom .bottom-right img {
+  width: 80%;
+  max-height: 80%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+@media (max-width: 48rem) {
+  .bottom {
+    
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .bottom-right {
+    display: none !important;
+  }
+
+  .bottom .bottom-left {
+    width: 100vw;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .bottom-left p {
+    font-size: 15px;
+  }
+}

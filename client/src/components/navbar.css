@@ -1,0 +1,32 @@
+/*
+.nav-con {
+  position: fixed;
+  width: 100vw;
+}
+*/
+
+.navbar-brand {
+  color: #fff !important;
+  font-size: calc(15px + 1vw) !important;
+  margin-left: 5vw;
+}
+
+.navbar_desk {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar_desk a {
+  color: #fff !important;
+  font-size: calc(12px + 0.7vw) !important;
+  margin-right: 5vw !important;
+}
+
+.navbar-toggler {
+  margin-right: 5vw !important;
+}
+
+.collapse-mobile a {
+  margin-left: 3vw !important;
+}
