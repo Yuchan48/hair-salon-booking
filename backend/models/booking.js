@@ -13,9 +13,6 @@ const bookingSchema = new mongoose.Schema({
       type: String,
       required: "This field is required.",
     },
-    phone: {
-      type: String,
-    },
     selectedDate: {
       type: String,
       required: "This field is required.",

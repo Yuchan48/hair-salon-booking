@@ -32,12 +32,11 @@ const deleteBooking = (req, res) => {
 }
 
 const saveBooking = (req, res) => {
-  const { selectedDate, selectedTime, firstName, lastName, phone, email } = req.body;
+  const { selectedDate, selectedTime, firstName, lastName, email } = req.body;
   let booking = new Booking({
     firstName: firstName,
     lastName: lastName,
     email: email,
-    phone: phone,
     selectedDate: selectedDate,
     selectedTime: selectedTime
   });

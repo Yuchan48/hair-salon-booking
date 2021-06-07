@@ -1,0 +1,35 @@
+.service-comp-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 3vh;
+    
+}
+
+.service-dropdown {
+    margin-left: 7.5vw;
+}
+
+.service-imgs {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.picked-img-service {
+    width: 110px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 58rem) {
+    .service-comp-container {
+        justify-content: center;
+     }
+ 
+     .service-dropdown {
+         margin-left: 0;
+     }
+
+}

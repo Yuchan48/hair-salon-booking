@@ -25,6 +25,9 @@ function NavbarSection() {
         <Collapse isOpen={isOpen} navbar className="collapse-mobile">
           <Nav id="nav" className="navbar_desk" navbar>
             <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="/service/">Service</NavLink>
             </NavItem>
             <NavItem>

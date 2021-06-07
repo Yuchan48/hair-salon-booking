@@ -9,7 +9,7 @@ function HomeScreen() {
          
          <Jumbotron className="jumbo">
            <h1 className="display-1 text-white">Hair Salon</h1>
-           <Button href="/booking/" color="danger">Book Now</Button>
+           <Button href="/booking/" className="home-btn" color="danger">Book Now</Button>
          </Jumbotron>
       </div>
       <br />

@@ -1,11 +1,11 @@
 .home-container {
   min-height: 100vh;
+  max-width: 100vw;
   margin: 0;
   padding: 0;
   margin-left: 0;
   position: relative;
   overflow-x: hidden;
-  
 }
 
 .top {
@@ -31,39 +31,36 @@
   z-index: -1;
 }
 
-
 .jumbo {
-  
   display: flex;
   flex-direction: column;
   height: 70%;
   align-items: center;
   justify-content: space-around;
-  
 }
 
 .top .jumbo h1 {
-  
   font-weight: 700;
   letter-spacing: 5px;
 }
 
-.jumbo button {
-  padding: calc(5px + 0.5vw) calc(6px + 2.5vw);
-  font-size: calc(12px + 0.5vw);
+.home-btn {
+  padding: calc(0.1rem + 0.8vh) calc(6px + 2vw) !important;
+  font-size: calc(12px + 1vw) !important;
 }
 
 /* bottom */
 .bottom {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly !important;
   width: 100vw;
-  margin-bottom: 0;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .bottom .bottom-left {
-  width: 50vw;
-  min-height: 50vh !important;
+  width: 50vw; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,7 +86,7 @@
 }
 
 .bottom .bottom-right img {
-  width: 80%;
+  width: 85%;
   max-height: 80%;
   object-fit: cover;
   border-bottom-left-radius: 10px;
@@ -98,9 +95,8 @@
 
 @media (max-width: 48rem) {
   .bottom {
-    
     margin-bottom: 0;
-    position: relative;
+   
   }
 
   .bottom-right {
