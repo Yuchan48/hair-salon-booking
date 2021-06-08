@@ -27,8 +27,9 @@ function DateComponent(props) {
           }),
         });
         res = await res.json();
+        
         const times = [ "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",];
-        let timeOccupied = res.selectedTime;
+        let timeOccupied = res.map(ele => ele.selectedTime);
         let availability = [];
         if (timeOccupied) {
           availability = times.filter((ele) => !timeOccupied.includes(ele));
@@ -89,10 +90,11 @@ function DateComponent(props) {
     return dateArr;
   };
 
-  const timeChoice = (item) => {
+  const timeChoice = (item, i) => {
     return (
       <div
         className="time-items-comp"
+        key={i}
         onClick={() => {
           setTimeClick(timeClick + 1);
           setTimeSelection(item);
@@ -147,7 +149,7 @@ function DateComponent(props) {
         {timeClick === 0 ? (
           <div className="time-container-comp">
             {availableTime !== undefined
-              ? availableTime.map((item) => timeChoice(item))
+              ? availableTime.map((item, i) => timeChoice(item, i))
               : "not found"}
           </div>
         ) : (

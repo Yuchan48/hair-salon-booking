@@ -6,8 +6,7 @@ const Booking = require("../models/booking");
 
 router.post("/", async (req, res, next) => {  
         try {
-            const booking = await Booking.find({selectedDate: req.params.selectedDate});
-            console.log("times found . booking : ", booking);
+            const booking = await Booking.find({selectedDate: req.body.selectedDate});
             res.json(booking);
         } catch (error) {
             console.error(error);

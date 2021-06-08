@@ -1,0 +1,108 @@
+.confirmed-container {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  margin-left: 0;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmed-top {
+  width: 100vw;
+  height: 40vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.confirmed-top::after {
+  content: "";
+  background: url("../product_image/hair-main.jpg") bottom center no-repeat;
+  background-position: 20% 70%;
+  background-size: cover;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.confirmed-jumbo {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.confirmed-top .confirmed-jumbo h1 {
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.confirmed-btn {
+  padding: calc(0.1rem + 0.8vh) calc(6px + 2vw) !important;
+  font-size: calc(12px + 1vw) !important;
+}
+
+/* bottom */
+.confirmed-bottom {
+  display: flex;
+  justify-content: space-evenly !important;
+  width: 100vw;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.confirmed-bottom-left {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmed-bottom-left p {
+  font-size: 20px;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}
+
+.confirmed-bottom-left h4 {
+  color: #f34848;
+}
+
+.confirmed-bottom-right {
+  width: 50vw;
+  height: 50vh;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.confirmed-bottom-right img {
+  width: 90%;
+  max-height: 80%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+@media (max-width: 48rem) {
+  .confirmed-bottom-left {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .confirmed-bottom-right {
+    display: none;
+  }
+}

@@ -18,7 +18,7 @@
 }
 
 .picked-img-service {
-    width: 110px;
+    width: 150px;
     margin-left: 20px;
     border-radius: 10px;
 }
@@ -30,6 +30,10 @@
  
      .service-dropdown {
          margin-left: 0;
+     }
+
+     .picked-img-service {
+        width: 110px;
      }
 
 }

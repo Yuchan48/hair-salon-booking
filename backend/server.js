@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 //routes
 app.use("/api/availability", require("./routes/dateRoutes"));
 app.use("/api/save", require("./routes/saveRoutes"));
+app.use("/api/check", require("./routes/checkRoutes"));
+app.use("/api/delete", require("./routes/deleteRoutes"));
 
 const PORT = process.env.PORT || 5000;
 

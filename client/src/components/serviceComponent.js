@@ -29,7 +29,7 @@ function ServiceComponent(props) {
         <DropdownToggle color="danger">
           {serviceSelection.length > 0
             ? serviceSelection
-            : "select our service"}
+            : "Select our service"}
         </DropdownToggle>
         <DropdownMenu
           modifiers={{

@@ -17,9 +17,8 @@ router.post("/", (req, res, next) => {
   
     booking.save((err, doc) => {
       if (!err) {
-          res.json({message: "booked"});
-      } else {
-        
+          res.json(doc);
+      } else {      
         console.log("Error during sending data : " + err);
       }
     });
