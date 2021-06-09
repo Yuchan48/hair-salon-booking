@@ -15,7 +15,10 @@ function FormComponent(props) {
   const isDataValid = () => {
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
-    if (!formFirstname.match(nameRegex)) {
+    if (formFirstname.length === 0 || formLastname.length === 0 || formEmail.length === 0) {
+      alert("required field missing");
+      return false;
+    } else if (!formFirstname.match(nameRegex)) {
       alert("invalid first name");
       return false;
     } else if (!formLastname.match(nameRegex)) {
@@ -24,7 +27,7 @@ function FormComponent(props) {
     } else if (!formEmail.match(emailRegex)) {
       alert("invalid email");
       return false;
-    } else if (
+    }  else if (
       formLastname.match(nameRegex) &&
       formEmail.match(emailRegex) &&
       formEmail.match(emailRegex)
@@ -48,15 +51,17 @@ function FormComponent(props) {
           }),
         });
         res = await res.json();
-
+        if (res.length === 0){
+          alert("we don't find any booking");
+        }
         let tempArr = [];
         res.forEach((ele) => {
           const getAllData = [];
           getAllData.push(ele.selectedTime, ele.selectedDate, ele._id);
           tempArr.push(getAllData);
         });
-
         props.bookedDataParent(tempArr);
+
       } catch (error) {
         console.log("error: ", error);
         alert("there was an sending the data");
@@ -82,6 +87,7 @@ function FormComponent(props) {
           <div className="check-forms-sections">
             <label htmlFor="lastName">last name</label>
             <input
+              className="check-form-names"
               type="text"
               name="lastName"
               placeholder="last name"
@@ -94,6 +100,7 @@ function FormComponent(props) {
         <div className="check-forms-sections">
           <label htmlFor="email">email</label>
           <input
+            className="check-form-names"
             type="email"
             name="email"
             placeholder="email"

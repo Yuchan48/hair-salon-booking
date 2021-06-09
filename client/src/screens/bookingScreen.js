@@ -98,6 +98,7 @@ function BookingScreen() {
                 <div className="booking-forms-sections">
                   <label htmlFor="firstName">first name</label>
                   <input
+                    className="booking-form-names"
                     type="text"
                     name="firstName"
                     placeholder="first name"
@@ -110,6 +111,7 @@ function BookingScreen() {
                 <div className="booking-forms-sections">
                   <label htmlFor="lastName">last name</label>
                   <input
+                    className="booking-form-names"
                     type="text"
                     name="lastName"
                     placeholder="last name"

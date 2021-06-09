@@ -107,16 +107,20 @@
 }
 
 .booking-forms-sections label {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .booking-forms-sections input {
   padding: 3px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   border: 2px solid #464646;
   border-radius: 5px;
+}
+
+.booking-form-names {
+  width: 100%;
 }
 
 .booking-forms-sections input:focus {
@@ -170,7 +174,7 @@ input:-webkit-autofill:active {
   transform: scale(0.9);
 }
 
-@media (max-width: 63rem) {
+@media (max-width: 46rem) {
   .btm-left-booking {
     width: 100vw !important;
   }
@@ -181,6 +185,7 @@ input:-webkit-autofill:active {
 
   .booking-form-container {
     margin-left: 0;
+    max-width: 350px;
   }
 
   .btm-right-booking {

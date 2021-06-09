@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-left: 20vw !important;
+  margin-bottom: 2vh;
 }
 
 .time-container-comp {
@@ -51,9 +52,15 @@
   .time-container-comp {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .time-items-comp,
+.time-item-comp {
+  width: 4.4rem;
+  height: 2.7rem;
+}
 }
 
-@media (max-width: 63rem) {
+@media (max-width: 46rem) {
   .time-container-comp {
     width: 80vw !important;
     grid-template-columns: repeat(6, 1fr);
