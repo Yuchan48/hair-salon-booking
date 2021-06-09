@@ -64,7 +64,7 @@ function FormComponent(props) {
 
       } catch (error) {
         console.log("error: ", error);
-        alert("there was an sending the data");
+        alert("there was an error sending the data");
       }
     }
   };
