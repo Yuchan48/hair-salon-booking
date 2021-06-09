@@ -6,6 +6,7 @@ const path = require("path");
 
 const connectDB = require("./backend/models/config");
 
+
 connectDB();
 
 app.use(cors());
