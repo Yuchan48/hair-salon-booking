@@ -21,6 +21,7 @@ function NavbarSection() {
         <NavbarBrand href="/" className="navbar-brand">
           Hair Salon
         </NavbarBrand>
+
         <NavbarToggler onClick={toggle} className="navbar-toggler" />
         <Collapse isOpen={isOpen} navbar className="collapse-mobile">
           <Nav id="nav" className="navbar_desk" navbar>
@@ -33,7 +34,7 @@ function NavbarSection() {
             <NavItem>
               <NavLink href="/booking/">Book Now</NavLink>
             </NavItem>
-            <NavItem  className="nav-a-last">
+            <NavItem className="nav-a-last">
               <NavLink href="/check/">View Booking</NavLink>
             </NavItem>
           </Nav>
