@@ -39,7 +39,7 @@ function FormComponent(props) {
   const findData = async () => {
     if (isDataValid() === true) {
       try {
-        let res = await fetch("http://localhost:5000/api/check", {
+        let res = await fetch("/api/check", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -17,7 +17,7 @@ function DateComponent(props) {
   useEffect(() => {
     if (dateSelection.length > 0) {
       (async () => {
-        let res = await fetch("http://localhost:5000/api/availability", {
+        let res = await fetch("/api/availability", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -50,7 +50,7 @@ function BookingScreen() {
   const saveBooking = async () => {
     if (isDataValid() === true) {
       try {
-        let res = await fetch("http://localhost:5000/api/save", {
+        let res = await fetch("/api/save", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -13,7 +13,7 @@ function CheckScreen() {
   const deleteData = async (item) => {
     if (window.confirm("Are you sure to delete this booking ?") === true) {
       try {
-        let res = await fetch(`http://localhost:5000/api/delete/${item[2]}`, {
+        let res = await fetch(`/api/delete/${item[2]}`, {
           method: "GET",
         });
         await res.json();
