@@ -53,7 +53,7 @@
   }
 }
 
-@media (max-width: 58rem) {
+@media (max-width: 63rem) {
   .time-container-comp {
     width: 80vw !important;
     grid-template-columns: repeat(6, 1fr);

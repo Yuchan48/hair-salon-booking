@@ -22,7 +22,7 @@
     border-radius: 10px;
 }
 
-@media (max-width: 58rem) {
+@media (max-width: 63rem) {
     .service-comp-container {
         justify-content: center;
      }

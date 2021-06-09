@@ -72,7 +72,7 @@ input:-webkit-autofill:active {
   transform: scale(0.9);
 }
 
-@media (max-width: 56rem) {
+@media (max-width: 60rem) {
   .check-form-comp-title {
     margin-top: 5vh;
   }

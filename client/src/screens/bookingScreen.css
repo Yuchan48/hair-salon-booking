@@ -170,7 +170,7 @@ input:-webkit-autofill:active {
   transform: scale(0.9);
 }
 
-@media (max-width: 58rem) {
+@media (max-width: 63rem) {
   .btm-left-booking {
     width: 100vw !important;
   }
