@@ -3,12 +3,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 3vh;
-    
+    margin-top: 3vh;   
 }
 
 .service-dropdown {
-    margin-left: 7.5vw;
+    margin-left: 10vw;
 }
 
 .service-imgs {

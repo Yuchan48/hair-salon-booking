@@ -76,7 +76,7 @@ function BookingScreen() {
 
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  };
 
   return (
     <div className="booking-container">
@@ -102,7 +102,9 @@ function BookingScreen() {
                     name="firstName"
                     placeholder="first name"
                     value={formFirstname}
-                    onChange={(e) => setFormFirstname(capitalize(e.target.value))}
+                    onChange={(e) =>
+                      setFormFirstname(capitalize(e.target.value))
+                    }
                   />
                 </div>
                 <div className="booking-forms-sections">
@@ -112,7 +114,9 @@ function BookingScreen() {
                     name="lastName"
                     placeholder="last name"
                     value={formLastname}
-                    onChange={(e) => setFormLastname(capitalize(e.target.value))}
+                    onChange={(e) =>
+                      setFormLastname(capitalize(e.target.value))
+                    }
                   />
                 </div>
               </div>

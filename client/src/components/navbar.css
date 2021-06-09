@@ -23,6 +23,10 @@
   margin-right: 5vw !important;
 }
 
+.nav-a-last a {
+  margin-right: 3vw !important;
+}
+
 .navbar-toggler {
   margin-right: 5vw !important;
 }

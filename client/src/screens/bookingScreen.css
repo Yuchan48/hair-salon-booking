@@ -55,9 +55,8 @@
 /* bottom */
 .bottom-booking {
   width: 100vw;
-  display: flex; 
+  display: flex;
 }
-
 
 .btm-right-booking {
   width: 40vw;
@@ -81,21 +80,21 @@
 }
 
 .btm-left-booking h3 {
-  margin-left: 7.5vw;
+  margin-left: 12vw;
   margin-top: 3vh;
 }
-
 
 /* form */
 .booking-form-place {
   width: 100%;
+  margin-top: 2vh;
   display: flex;
   justify-content: flex-start;
 }
 
 .booking-form-container {
   width: 80%;
-  margin-left: 6vw;
+  margin-left: 9vw;
   max-width: 550px;
 }
 
@@ -126,23 +125,21 @@
 
 .booking-form-row {
   display: flex;
-  
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active
-{
- box-shadow: 0 0 0 30px #fff inset !important;
- -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px #fff inset !important;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
 }
 
 .booking-form-btn-section {
-   width: 100%;
-   margin-top: 3vh; 
-   display: flex; 
-   justify-content: flex-start;
+  width: 100%;
+  margin-top: 3vh;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .booking-btn-section-width {
@@ -176,35 +173,34 @@ input:-webkit-autofill:active
 @media (max-width: 58rem) {
   .btm-left-booking {
     width: 100vw !important;
-}
+  }
 
-.booking-form-place {
-  justify-content: center;
-}
+  .booking-form-place {
+    justify-content: center;
+  }
 
-.booking-form-container {
-  margin-left: 0;
-}
+  .booking-form-container {
+    margin-left: 0;
+  }
 
-.btm-right-booking {
-  display: none;
-}
+  .btm-right-booking {
+    display: none;
+  }
 
-.btm-left-booking h3 {
-  text-align: center;
-  margin-left: 0;
-}
+  .btm-left-booking h3 {
+    text-align: center;
+    margin-left: 0;
+  }
 
-.booking-form-row {
-  flex-direction: column;
-} 
+  .booking-form-row {
+    flex-direction: column;
+  }
 
-.booking-form-btn-section {
-  justify-content: center;
-}
+  .booking-form-btn-section {
+    justify-content: center;
+  }
 
-.booking-btn-section-width {
-  margin-left: 0;
+  .booking-btn-section-width {
+    margin-left: 0;
+  }
 }
-}
-

@@ -33,8 +33,8 @@ function NavbarSection() {
             <NavItem>
               <NavLink href="/booking/">Book Now</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/Yuchan48/">GitHub</NavLink>
+            <NavItem  className="nav-a-last">
+              <NavLink href="/check/">View Booking</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
