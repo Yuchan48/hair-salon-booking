@@ -70,13 +70,13 @@
 }
 
 .check-date-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .check-date-box h4 {
-   margin: 4vh 0;
+  margin: 4vh 0;
 }
 
 .check-date-items {
@@ -126,12 +126,11 @@
 }
 
 @media (max-width: 21.5rem) {
-    
-.check-date-items p {
-  font-size: 15px;
-}
+  .check-date-items p {
+    font-size: 15px;
+  }
 
-.check-date-items i {
-  font-size: 25px;
-}
+  .check-date-items i {
+    font-size: 25px;
+  }
 }

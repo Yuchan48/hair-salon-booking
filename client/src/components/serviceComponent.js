@@ -42,7 +42,13 @@ function ServiceComponent(props) {
                   styles: {
                     ...data.styles,
                     overflow: "auto",
-                    maxHeight: "250px",},};},},}}>
+                    maxHeight: "250px",
+                  },
+                };
+              },
+            },
+          }}
+        >
           {services.map((ele) => {
             return (
               <DropdownItem
@@ -53,7 +59,12 @@ function ServiceComponent(props) {
                   setServiceSelection(ele[0]);
                   setPhotoSelection(ele[1]);
                 }}
-                style={{ display: "flex", height: "80px", alignItems: "center"}}>
+                style={{
+                  display: "flex",
+                  height: "80px",
+                  alignItems: "center",
+                }}
+              >
                 <img src={ele[1]} alt="img" className="service-imgs" />
                 <p style={{ fontSize: "20px" }}>{ele[0]}</p>
               </DropdownItem>
@@ -63,7 +74,11 @@ function ServiceComponent(props) {
       </UncontrolledDropdown>
 
       <div>
-        {serviceSelection.length > 0 ? <img className="picked-img-service" src={photoSelection} alt="img" /> : <div></div>}
+        {serviceSelection.length > 0 ? (
+          <img className="picked-img-service" src={photoSelection} alt="img" />
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );

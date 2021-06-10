@@ -1,0 +1,44 @@
+.footer {
+  background-color: #5f5e5e;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.footer p {
+  color: #f4f4f4;
+  margin-bottom: 0;
+  margin-right: 2rem;
+}
+
+.footer i {
+  color: #f4f4f4;
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.footer-mail-icon {
+  margin-right: 2rem !important;
+}
+
+.footer i:hover {
+  color: rgb(207, 147, 212);
+}
+
+@media (max-width: 48rem) {
+  .footer p {
+    margin-right: 1rem;
+  }
+
+  .footer i {
+    font-size: 1.8rem;
+    margin: 0 0.5rem;
+  }
+
+  .footer-mail-icon {
+    margin-right: 0.5rem !important;
+  }
+}

@@ -6,7 +6,6 @@ const path = require("path");
 
 const connectDB = require("./backend/models/config");
 
-
 connectDB();
 
 app.use(cors());
@@ -18,15 +17,14 @@ app.use("/api/save", require("./backend/routes/saveRoutes"));
 app.use("/api/check", require("./backend/routes/checkRoutes"));
 app.use("/api/delete", require("./backend/routes/deleteRoutes"));
 
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname, '/client/build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "client", "build", "index.html"))
-    });
-} 
-
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`server connected on port ${PORT}`))
+app.listen(PORT, () => console.log(`server connected on port ${PORT}`));

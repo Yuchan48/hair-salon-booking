@@ -54,10 +54,10 @@
   }
 
   .time-items-comp,
-.time-item-comp {
-  width: 4.4rem;
-  height: 2.7rem;
-}
+  .time-item-comp {
+    width: 4.4rem;
+    height: 2.7rem;
+  }
 }
 
 @media (max-width: 46rem) {

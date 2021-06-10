@@ -60,7 +60,7 @@
 }
 
 .bottom .bottom-left {
-  width: 50vw; 
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +96,6 @@
 @media (max-width: 48rem) {
   .bottom {
     margin-bottom: 0;
-   
   }
 
   .bottom-right {

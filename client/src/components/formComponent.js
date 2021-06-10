@@ -15,7 +15,11 @@ function FormComponent(props) {
   const isDataValid = () => {
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
-    if (formFirstname.length === 0 || formLastname.length === 0 || formEmail.length === 0) {
+    if (
+      formFirstname.length === 0 ||
+      formLastname.length === 0 ||
+      formEmail.length === 0
+    ) {
       alert("required field missing");
       return false;
     } else if (!formFirstname.match(nameRegex)) {
@@ -27,7 +31,7 @@ function FormComponent(props) {
     } else if (!formEmail.match(emailRegex)) {
       alert("invalid email");
       return false;
-    }  else if (
+    } else if (
       formLastname.match(nameRegex) &&
       formEmail.match(emailRegex) &&
       formEmail.match(emailRegex)
@@ -51,7 +55,7 @@ function FormComponent(props) {
           }),
         });
         res = await res.json();
-        if (res.length === 0){
+        if (res.length === 0) {
           alert("we don't find any booking");
         }
         let tempArr = [];
@@ -61,7 +65,6 @@ function FormComponent(props) {
           tempArr.push(getAllData);
         });
         props.bookedDataParent(tempArr);
-
       } catch (error) {
         console.log("error: ", error);
         alert("there was an error sending the data");

@@ -13,10 +13,9 @@ import {
 } from "reactstrap";
 
 import hairset from "../product_image/hair-set.jpg";
-import haircolor from '../product_image/colorhair.jpg';
-import haircut from '../product_image/hairsalon.jpg';
-import makeup from '../product_image/makeup.jpg';
-
+import haircolor from "../product_image/colorhair.jpg";
+import haircut from "../product_image/hairsalon.jpg";
+import makeup from "../product_image/makeup.jpg";
 
 function ServiceScreen() {
   return (
@@ -31,7 +30,10 @@ function ServiceScreen() {
       </div>
 
       <div className="service-bottom">
-        <Container  className="themed-container item-container-service"  fluid={true}>
+        <Container
+          className="themed-container item-container-service"
+          fluid={true}
+        >
           <Row>
             <Col>
               <h3>Our Services</h3>
@@ -39,8 +41,14 @@ function ServiceScreen() {
           </Row>
           <Row>
             <Col lg="3" md="6" sm="12">
-              <Card  className="service-cards">
-                <CardImg top width="100%" height="50%" src={haircut} alt="hair set img" />
+              <Card className="service-cards">
+                <CardImg
+                  top
+                  width="100%"
+                  height="50%"
+                  src={haircut}
+                  alt="hair set img"
+                />
                 <CardBody>
                   <CardTitle tag="h5">Hair Cut</CardTitle>
                   <CardText>
@@ -51,8 +59,8 @@ function ServiceScreen() {
               </Card>
             </Col>
             <Col lg="3" md="6" sm="12">
-              <Card  className="service-cards">
-                <CardImg top width="100%"  src={haircolor} alt="hair set img" />
+              <Card className="service-cards">
+                <CardImg top width="100%" src={haircolor} alt="hair set img" />
                 <CardBody>
                   <CardTitle tag="h5">Color</CardTitle>
                   <CardText>
@@ -63,7 +71,7 @@ function ServiceScreen() {
               </Card>
             </Col>
             <Col lg="3" md="6" sm="12">
-              <Card  className="service-cards">
+              <Card className="service-cards">
                 <CardImg top width="100%" src={hairset} alt="hair set img" />
                 <CardBody>
                   <CardTitle tag="h5">Styling</CardTitle>
@@ -76,7 +84,7 @@ function ServiceScreen() {
               </Card>
             </Col>
             <Col lg="3" md="6" sm="12">
-              <Card  className="service-cards">
+              <Card className="service-cards">
                 <CardImg top width="100%" src={makeup} alt="hair set img" />
                 <CardBody>
                   <CardTitle tag="h5">Make-up</CardTitle>

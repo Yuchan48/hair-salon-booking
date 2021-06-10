@@ -18,7 +18,7 @@ function CheckScreen() {
         });
         await res.json();
         console.log("deleted");
-        const updateItem = bookedData.filter(ele => ele[2] !== item[2])
+        const updateItem = bookedData.filter((ele) => ele[2] !== item[2]);
         setBookedData(updateItem);
       } catch (err) {
         console.log("error: ", err);
