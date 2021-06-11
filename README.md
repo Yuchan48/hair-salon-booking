@@ -5,6 +5,7 @@ created with React, Node.js and MongoDB.
 #### preview : https://yuchan-salon-booking.herokuapp.com/
 
 - You can book, check and delete your booking.
+- You can make booking from mon-fri for next 2 weeks
 - mobile responsive
 
 ___
