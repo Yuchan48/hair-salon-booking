@@ -5,6 +5,8 @@ created with React, Node.js and MongoDB.
 #### preview : https://yuchan-salon-booking.herokuapp.com/
 
 - You can book, check and delete your booking.
+- You can make booking from monday - friday for next 2 weeks.
+- When you check the existing booking, it will eliminate the passt booking date, and show the times in descending order.
 - mobile responsive
 
 ___
