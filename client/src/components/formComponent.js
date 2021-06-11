@@ -57,14 +57,25 @@ function FormComponent(props) {
         res = await res.json();
         if (res.length === 0) {
           alert("we don't find any booking");
-        }
-        let tempArr = [];
+        } else {
+          let tempArr = [];
         res.forEach((ele) => {
           const getAllData = [];
-          getAllData.push(ele.selectedTime, ele.selectedDate, ele._id);
-          tempArr.push(getAllData);
+          //check if the booking is already expired
+          let currentTimeTest = new Date().getTime();
+          let timeStr = new Date(ele.selectedDate + " " + ele.selectedTime).getTime();
+          if (timeStr > currentTimeTest){
+            getAllData.push(ele.selectedTime, ele.selectedDate, ele._id);
+            tempArr.push(getAllData);
+          }
         });
-        props.bookedDataParent(tempArr);
+        if (tempArr.length === 0) {
+          alert("we don't find any booking");
+        } else {
+          tempArr.sort((a,b) => new Date(a[1] + " " + a[0]) - new Date(b[1] + " " + b[0]))
+          props.bookedDataParent(tempArr);
+        }}
+        
       } catch (error) {
         console.log("error: ", error);
         alert("there was an error sending the data");
