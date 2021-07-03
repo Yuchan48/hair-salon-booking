@@ -24,7 +24,7 @@ ___
 #### set up
 - `npm init -y` in the root directory
 - Install all the dependencies in both client and root folder
-- create .env file and add env environment value. `MONGO_URI={MongoDB URI}` , `PORT=5000` . `EMAIL_ADDRESS={your gmail address}` and `EMAIL_SECRET={your gmail password}`.
+- create .env file and add the environment values. `MONGO_URI={MongoDB URI}` , `PORT=5000` . `EMAIL_ADDRESS={your gmail address}` and `EMAIL_SECRET={your gmail password}`.
 - to run the app, type `npm run dev` in the terminal
 
 
