@@ -1,5 +1,6 @@
 import "./serviceComponent.css";
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   UncontrolledDropdown,
@@ -12,10 +13,11 @@ import hairset from "../product_image/hair-set.jpg";
 import haircolor from "../product_image/colorhair.jpg";
 import haircut from "../product_image/hairsalon.jpg";
 import makeup from "../product_image/makeup.jpg";
+import { selectServiceBooking } from "../redux/actions/bookingActions";
 
 function ServiceComponent(props) {
-  const [serviceSelection, setServiceSelection] = useState([]);
-  const [photoSelection, setPhotoSelection] = useState([]);
+  const bookingInfo = useSelector((state) => state.bookingInfo);
+  const { service } = bookingInfo;
 
   let services = [
     ["Hair Cut", haircut],
@@ -23,13 +25,20 @@ function ServiceComponent(props) {
     ["Styling", hairset],
     ["Make-up", makeup],
   ];
+
+  //const [photoSelection, setPhotoSelection] = useState(services.map(ele => ele[0] === service));
+  //const [serviceSelection, setServiceSelection] = useState(service)
+  const dispatch = useDispatch();
+
+  const selectServiceHandler = (ele) => {
+    dispatch(selectServiceBooking(ele));
+  };
+
   return (
     <div className="service-comp-container">
       <UncontrolledDropdown size="lg" className="service-dropdown">
         <DropdownToggle color="danger">
-          {serviceSelection.length > 0
-            ? serviceSelection
-            : "Select our service"}
+          {service ? service[0] : "Select our service"}
         </DropdownToggle>
         <DropdownMenu
           modifiers={{
@@ -55,9 +64,7 @@ function ServiceComponent(props) {
                 key={ele[0]}
                 className="service-dropdown-item"
                 onClick={() => {
-                  props.serviceSelectionParent(ele[0]);
-                  setServiceSelection(ele[0]);
-                  setPhotoSelection(ele[1]);
+                  selectServiceHandler(ele);
                 }}
                 style={{
                   display: "flex",
@@ -74,8 +81,8 @@ function ServiceComponent(props) {
       </UncontrolledDropdown>
 
       <div>
-        {serviceSelection.length > 0 ? (
-          <img className="picked-img-service" src={photoSelection} alt="img" />
+        {service ? (
+          <img className="picked-img-service" src={service[1]} alt="img" />
         ) : (
           <div></div>
         )}

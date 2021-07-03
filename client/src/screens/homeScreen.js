@@ -7,7 +7,7 @@ function HomeScreen() {
     <div className="home-container">
       <div className="top">
         <Jumbotron className="jumbo">
-          <h1 className="display-1 text-white">Hair Salon</h1>
+          <h1>Hair Salon</h1>
           <Button href="/booking/" className="home-btn" color="danger">
             Book Now
           </Button>

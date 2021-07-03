@@ -9,3 +9,72 @@ body {
   background-color: #f4f4f4;
   overflow-x: hidden;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px #fff inset !important;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+
+input:focus {
+  outline: none;
+}
+
+table {
+  width: 90%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+table tbody tr:nth-of-type(odd) {
+  background-color: #d6d4d6;
+}
+
+table td,
+table th {
+  text-align: center;
+  border: 0.1rem solid #777677;
+  padding: 0.5rem 0.6rem;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table button {
+  background-color: #fc244c;
+  color: #f4f4f4;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0.2rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table button:hover {
+  background-color: #df1f42;
+}
+
+table button:active {
+  background-color: #f06881;
+}
+
+@media (max-width: 30rem) {
+  table td,
+  table th {
+    padding: 0.5rem 0.2rem;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 21.5rem) {
+  table td,
+  table th {
+    padding: 0.5rem 0.1rem;
+  }
+}

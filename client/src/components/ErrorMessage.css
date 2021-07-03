@@ -1,0 +1,11 @@
+.error_message_box {
+    padding: 1rem;
+    margin: 0 1rem;
+    border: 0.1rem solid transparent;
+    font-size: 15px;
+    border-radius: 0.5rem;
+    color: #a02020;
+    background-color: #ffe0e0;
+    text-align: center;
+  }
+  

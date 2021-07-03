@@ -1,29 +1,130 @@
-.navbar-brand {
-  color: #fff !important;
-  font-size: calc(15px + 1vw) !important;
-  margin-left: 5vw;
-}
-
-.navbar_desk {
-  width: 100%;
+.navbar_container {
+  background-color: rgb(54, 54, 54);
+  color: #f4f4f4;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 1.5rem;
+  position: relative;
+  z-index: 80;
 }
 
-.navbar_desk a {
-  color: #fff !important;
-  font-size: calc(12px + 0.7vw) !important;
-  margin-right: 5vw !important;
+.navbar_container a {
+  text-decoration: none;
+  color: #f4f4f4;
 }
 
-.nav-a-last a {
-  margin-right: 3vw !important;
+.navbar_container a:hover {
+  color: rgb(209, 206, 206);
 }
 
-.navbar-toggler {
-  margin-right: 5vw !important;
+.navbar_container a:active {
+  color: rgb(179, 174, 174);
 }
 
-.collapse-mobile a {
-  margin-left: 3vw !important;
+.navbar_left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar_title {
+  margin-left: 1.5rem;
+}
+
+.navbar_right_section {
+  display: flex;
+}
+
+.navbar_links a {
+  font-size: 18px;
+  margin: 0 calc(10px + 2vw);
+}
+
+.nav-a-last {
+  font-size: 15px;
+}
+
+/* dropdown */
+.nav_dropdown {
+  display: block;
+}
+
+.nav_dropdown span {
+  color: #fff;
+  margin-left: 3.5vw;
+  margin-right: 0.3rem;
+  font-size: 15px;
+}
+
+.nav_dropdown_content {
+  text-align: start;
+  min-width: 130px;
+  height: auto;
+  position: absolute;
+  right: 0.2rem;
+  background-color: #444546;
+  display: none;
+  z-index: 100;
+}
+
+.nav_dropdown:hover .nav_dropdown_content {
+  display: block;
+}
+
+.nav_dropdown_content ul {
+  padding: 0;
+  margin: 0;
+}
+
+.nav_dropdown_content li {
+  list-style: none;
+  padding: 0.6rem 0 0.6rem 1rem;
+}
+
+.nav_dropdown_content li:not(:last-child) {
+  border-bottom: solid 1px #f4f4f4;
+}
+
+.nav_dropdown_content li a {
+  font-size: 14px;
+}
+
+/* hamburger menu */
+.hamburger_menu {
+  width: 30px;
+  height: 25px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hamburger_menu > div {
+  background: #f4f4f4;
+  width: 100%;
+  margin: 0;
+  height: 3px;
+  border-radius: 5px;
+}
+
+.hamburger_menu:hover > div {
+  background: rgb(209, 206, 206);
+}
+
+@media (max-width: 46rem) {
+  .navbar_links {
+    display: none;
+  }
+
+  .hamburger_menu {
+    display: flex;
+    height: 25px;
+  }
+}
+
+@media (max-width: 25rem) {
+  .navbar_container {
+    padding: 0.3rem 1rem;
+  }
 }

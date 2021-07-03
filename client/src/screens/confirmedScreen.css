@@ -99,7 +99,7 @@
 @media (max-width: 48rem) {
   .confirmed-bottom-left {
     width: 100vw;
-    height: 50vh;
+    min-height: 50vh;
   }
 
   .confirmed-bottom-right {

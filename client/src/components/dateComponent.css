@@ -28,12 +28,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 5px;
   width: 4.8rem;
   height: 3rem;
   background-color: #464646;
   color: #fff;
   margin: 1rem 0;
+}
+
+.time-items-comp {
+  cursor: pointer;
 }
 
 .time-items-comp:hover {

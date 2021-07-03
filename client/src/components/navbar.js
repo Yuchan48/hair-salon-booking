@@ -1,46 +1,94 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "./navbar.css";
-import {
-  Navbar,
-  NavbarBrand,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Nav,
-  Collapse,
-} from "reactstrap";
+import { signoutUser } from "../redux/actions/userActions";
 
-function NavbarSection() {
-  const [isOpen, setIsOpen] = useState(false);
+function NavbarSection({ click }) {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
 
-  const toggle = () => setIsOpen(!isOpen);
+  const signoutHandler = () => {
+    dispatch(signoutUser());
+  };
 
   return (
-    <div className="nav-con">
-      <Navbar color="dark" light expand="md" className="navbar-dark">
-        <NavbarBrand href="/" className="navbar-brand">
-          Hair Salon
-        </NavbarBrand>
+    <nav className="navbar_container">
+      <div className="navbar_left">
+        <div className="hamburger_menu" onClick={click}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <Link to="/" className="navbar_title">
+          <h2>Hair Salon</h2>
+        </Link>
+      </div>
 
-        <NavbarToggler onClick={toggle} className="navbar-toggler" />
-        <Collapse isOpen={isOpen} navbar className="collapse-mobile">
-          <Nav id="nav" className="navbar_desk" navbar>
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/service/">Service</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/booking/">Book Now</NavLink>
-            </NavItem>
-            <NavItem className="nav-a-last">
-              <NavLink href="/check/">View Booking</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
+      <div className="navbar_right_section">
+        <div className="navbar_links">
+          <Link to="/">Home</Link>
+          <Link to="/service/">Service</Link>
+          <Link to="/booking/">Book Now</Link>
+        </div>
+
+        <div id="nav" className="navbar_right_signin">
+          <div className="nav-a-last">
+            {userInfo && userInfo.isAdmin ? (
+              <div className="nav_dropdown">
+                <span>Admin</span>
+                <i className="fas fa-caret-down nav_icon_down"></i>
+                <div className="nav_dropdown_content">
+                  <ul>
+                    <li>
+                      <Link to="/profile">User Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="/allbooking">Bookings</Link>
+                    </li>
+                    <li>
+                      <Link to="/userlist">Users</Link>
+                    </li>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Sign out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : userInfo ? (
+              <div className="nav_dropdown">
+                <span>
+                  {userInfo.name.length < 10
+                    ? userInfo.name
+                    : userInfo.name.substr(0, 10) + "..."}
+                </span>
+                <i className="fas fa-caret-down nav_icon_down"></i>
+                <div className="nav_dropdown_content">
+                  <ul>
+                    <li>
+                      <Link to="/profile">User Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="/bookinghistory">Your Booking</Link>
+                    </li>
+                    <li>
+                      <Link to="#signout" onClick={signoutHandler}>
+                        Sign out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link to="/signin">Sign in</Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 

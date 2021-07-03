@@ -1,0 +1,191 @@
+.signin_screen_container {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  margin-left: 0;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* top */
+
+.signin_screen_top {
+  width: 100vw;
+  height: 40vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.signin_screen_top::after {
+  content: "";
+  background: url("../product_image/hair-main.jpg") bottom center no-repeat;
+  background-position: 20% 70%;
+  background-size: cover;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.signin_screen_jumbo {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.signin_screen_top .signin_screen_jumbo h1 {
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.signin_screen_btn {
+  padding: calc(0.1rem + 0.8vh) calc(6px + 2vw) !important;
+  font-size: calc(12px + 1vw) !important;
+}
+
+/* bottom */
+.signin_screen_bottom {
+  display: flex;
+  justify-content: space-evenly !important;
+  width: 100vw;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.signin_screen_bottom_left {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin_form_box {
+  width: 70%;
+  max-width: 600px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 15px;
+}
+
+.signin_box-title {
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.signin_box-title i {
+  margin-left: 1rem;
+  font-size: 35px;
+}
+
+.signin_loading_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.signin_inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.signin_inputs label {
+  font-weight: 600;
+}
+
+.signin_inputs input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  padding: 0.2rem;
+  border: #202020 solid 0.5px;
+}
+
+.signin_form_button {
+  text-align: center;
+}
+
+.signin_form_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #fa5353;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.signin_form_button button:hover {
+  background-color: #e65960;
+}
+
+.signin_form_button button:active {
+  background-color: #c42f37;
+}
+
+.signin_register_link {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.signin_register_link a {
+  color: rgb(243, 4, 243);
+}
+
+.signin_register_link a:hover {
+  color: rgb(247, 104, 247);
+}
+
+.signin_screen_bottom_right {
+  width: 40vw;
+  height: 50vh;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.signin_screen_bottom_right img {
+  width: 100%;
+  max-height: 80%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+@media (max-width: 46rem) {
+  .signin_screen_bottom_left {
+    width: 100vw;
+    min-height: 50vh;
+  }
+
+  .signin_form_box {
+    max-width: 450px;
+    width: 90%;
+    min-width: auto;
+  }
+
+  .signin_screen_bottom_right {
+    display: none;
+  }
+}

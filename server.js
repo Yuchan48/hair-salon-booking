@@ -12,10 +12,12 @@ app.use(cors());
 app.use(express.json());
 
 //routes
-app.use("/api/availability", require("./backend/routes/dateRoutes"));
-app.use("/api/save", require("./backend/routes/saveRoutes"));
-app.use("/api/check", require("./backend/routes/checkRoutes"));
-app.use("/api/delete", require("./backend/routes/deleteRoutes"));
+//app.use("/api/availability", require("./backend/routes/dateRoutes"));
+//app.use("/api/save", require("./backend/routes/saveRoutes"));
+//app.use("/api/check", require("./backend/routes/checkRoutes"));
+//app.use("/api/delete", require("./backend/routes/deleteRoutes"));
+app.use("/api/booking", require("./backend/routes/bookingRoutes"));
+app.use("/api/users", require("./backend/routes/userRoutes"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));

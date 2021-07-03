@@ -22,7 +22,7 @@ function ServiceScreen() {
     <div className="service-container">
       <div className="service-top">
         <Jumbotron className="service-jumbo">
-          <h1 className="display-1 text-white">Hair Salon</h1>
+          <h1>Hair Salon</h1>
           <Button href="/booking/" className="service-btn" color="danger">
             Book Now
           </Button>

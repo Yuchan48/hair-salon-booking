@@ -119,26 +119,6 @@
   border-radius: 5px;
 }
 
-.booking-form-names {
-  width: 100%;
-}
-
-.booking-forms-sections input:focus {
-  outline: none;
-}
-
-.booking-form-row {
-  display: flex;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  box-shadow: 0 0 0 30px #fff inset !important;
-  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-}
-
 .booking-form-btn-section {
   width: 100%;
   margin-top: 3vh;
@@ -158,12 +138,12 @@ input:-webkit-autofill:active {
   margin-left: 0;
   font-size: 20px;
   font-weight: 700;
-  padding: 0.7rem 1.7rem;
-  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
   background-color: #464646;
   color: #fff;
   cursor: pointer;
-  margin-bottom: 5vh;
+  margin-bottom: 3vh;
 }
 
 .booking-form-btn-section button:hover {
@@ -172,6 +152,20 @@ input:-webkit-autofill:active {
 
 .booking-form-btn-section button:active {
   transform: scale(0.9);
+}
+
+.booking_save_loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.booking_save_error {
+  width: 80%;
+  min-width: 300px;
+  margin: 0 auto;
 }
 
 @media (max-width: 46rem) {
