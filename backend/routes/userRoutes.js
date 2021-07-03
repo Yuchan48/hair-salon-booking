@@ -39,6 +39,7 @@ router.get("/", isAuth, isAdmin, async (req, res) => {
   
   router.post("/register", async (req, res) => {
     try {
+      
       const user = new User({
         name: req.body.name,
         email: req.body.email,
@@ -54,7 +55,7 @@ router.get("/", isAuth, isAdmin, async (req, res) => {
       });
     } catch (error) {
       console.error(error);
-      res.status(401).json({ message: "data fetching error" });
+      res.status(401).json({ message: "Account with this email address already exist." });
     }
   });
   

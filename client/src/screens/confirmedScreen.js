@@ -38,7 +38,7 @@ function ConfirmedScreen(props) {
           ) : booking ? (
             <>
               <h2>Thank you for booking!</h2>
-              <p>your booking is on</p>
+              <p>Your booking is on</p>
               <h4>
                 {booking.selectedDate} at {booking.selectedTime}
               </h4>
