@@ -1,32 +1,32 @@
-# hair-salon-booking
+# Hair Salon Booking
 
-created with React, Node.js and MongoDB.
+Booking website created with React, Node.js, Redux and MongoDB.
+
+___
+
+#### Home screen
+
+![home](https://i.imgur.com/lZZWKBxm.jpg)
 
 #### preview : https://yuchan-salon-booking.herokuapp.com/
+___
 
-- You can book, check and delete your booking.
-- You can make booking from monday - friday for next 2 weeks.
-- mobile responsive
+- Secure signin with Authentication with jasonwebtoken
+- Password hashed with bcrypt
+- Signin info will remain for 30days in the localstorage
+- You will receive a booking confirmation by email
+- When signed in, you can view and delete your existing booking, or update/delete your account
+- When signed in as an admin, you can view and delete lists of all the users and bookings 
+- You can make booking from monday - friday for next 2 weeks
 
 ___
 
 #### set up
 - `npm init -y` in the root directory
-- download all the dependencies in the root folder
-- download all the dependencies in the client folder. `npx create-react-app .`
-- create .env file and add MongoDB URI as `MONGO_URI={your uri}` and `PORT=5000`.
-- to run the app, type `npm run dev` in terminal
+- Install all the dependencies in both client and root folder
+- create .env file and add env environment value. `MONGO_URI={MongoDB URI}` , `PORT=5000` . `EMAIL_ADDRESS={your gmail address}` and `EMAIL_SECRET={your gmail password}`.
+- to run the app, type `npm run dev` in the terminal
 
-___
 
-#### home screen
 
-![home](https://i.imgur.com/4gwjK81m.jpg)
 
-#### booking screen
-
-![](https://i.imgur.com/T8HDpslm.jpg)
-
-#### mobile screen
-
-![](https://i.imgur.com/ss6T8vVm.jpg)
