@@ -45,6 +45,7 @@
 .register_screen_top .register_screen_jumbo h1 {
   font-weight: 700;
   letter-spacing: 5px;
+  font-size: calc(20px + 2vw);
 }
 
 .register_screen_btn {

@@ -46,6 +46,7 @@
 .signin_screen_top .signin_screen_jumbo h1 {
   font-weight: 700;
   letter-spacing: 5px;
+  font-size: calc(20px + 2vw);
 }
 
 .signin_screen_btn {

@@ -44,6 +44,7 @@
 .service-top .service-jumbo h1 {
   font-weight: 700;
   letter-spacing: 5px;
+  font-size: calc(20px + 2vw);
 }
 
 .service-btn {
