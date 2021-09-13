@@ -18,41 +18,69 @@ function BookingScreen(props) {
   const { userInfo } = userSignin;
 
   const bookingInfo = useSelector((state) => state.bookingInfo);
-  const { selectedDate, selectedTime, service, name } = bookingInfo;
+  const { selectedDate, selectedTime, service } = bookingInfo;
 
   const dispatch = useDispatch();
   const bookingSave = useSelector((state) => state.bookingSave);
   const { error, success, booking, loading } = bookingSave;
 
-  //form
-  const [formFirstname, setFormFirstname] = useState(
-    name ? name.formFirstname : ""
-  );
-  const [formLastname, setFormLastname] = useState(
-    name ? name.formLastname : ""
-  );
+  const [bookingData, setBookingData] = useState({
+    firstName: "",
+    lastName: "",
+    selectedDate: "",
+    selectedTime: "",
+    service: "",
+  });
+
+  const { firstName, lastName } = bookingData;
 
   useEffect(() => {
     if (success) {
       props.history.push(`/confirmed/${booking._id}`);
       dispatch({ type: BOOKING_SAVE_RESET });
     }
-  }, [success, dispatch, booking, props.history]);
+
+    if (
+      bookingData.selectedDate !== selectedDate ||
+      bookingData.selectedTime !== selectedTime ||
+      (service && bookingInfo.service !== service[0])
+    ) {
+      setBookingData((prev) => {
+        return {
+          ...prev,
+          selectedTime: selectedTime,
+          selectedDate: selectedDate,
+          service: service ? service[0] : "",
+        };
+      });
+    }
+  }, [
+    success,
+    dispatch,
+    booking,
+    props.history,
+    selectedDate,
+    selectedTime,
+    service,
+    bookingData.selectedDate,
+    bookingData.selectedTime,
+    bookingInfo.service,
+  ]);
 
   const isDataValid = () => {
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$/;
-    if (!formFirstname.match(nameRegex) && formFirstname.length > 0) {
+    if (!firstName.match(nameRegex) && firstName.length > 0) {
       alert("Invalid first name");
       return false;
-    } else if (!formLastname.match(nameRegex) && formLastname.length > 0) {
+    } else if (!lastName.match(nameRegex) && lastName.length > 0) {
       alert("Invalid last name");
       return false;
     } else if (
       !service ||
       !selectedDate ||
       !selectedTime ||
-      formFirstname.length === 0 ||
-      formLastname.length === 0
+      firstName.length === 0 ||
+      lastName.length === 0
     ) {
       alert("Required field missing");
       return false;
@@ -61,24 +89,20 @@ function BookingScreen(props) {
     }
   };
 
-  //let history = useHistory();
-
   const submitHandler = () => {
     if (!userInfo) {
       props.history.push("/signin?redirect=booking");
-      dispatch(nameBooking({ formFirstname, formLastname }));
-      //dispatch(lastNameBooking(formLastname));
+      dispatch(nameBooking({ firstName, lastName }));
     } else if (isDataValid() === true) {
-      dispatch(
-        saveBooking({
-          firstName: formFirstname,
-          lastName: formLastname,
-          selectedDate: selectedDate,
-          selectedTime: selectedTime,
-          service: service[0],
-        })
-      );
+      dispatch(saveBooking(bookingData));
     }
+  };
+
+  const onChange = (e) => {
+    setBookingData({
+      ...bookingData,
+      [e.target.name]: capitalize(e.target.value),
+    });
   };
 
   const capitalize = (str) => {
@@ -110,8 +134,8 @@ function BookingScreen(props) {
                   type="text"
                   name="firstName"
                   placeholder="First Name"
-                  value={formFirstname}
-                  onChange={(e) => setFormFirstname(capitalize(e.target.value))}
+                  value={firstName}
+                  onChange={onChange}
                 />
               </div>
               <div className="booking-forms-sections">
@@ -120,8 +144,8 @@ function BookingScreen(props) {
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
-                  value={formLastname}
-                  onChange={(e) => setFormLastname(capitalize(e.target.value))}
+                  value={lastName}
+                  onChange={onChange}
                 />
               </div>
             </div>

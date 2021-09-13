@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Jumbotron, Button } from "reactstrap";
 
 import {
-  detailsUser,
   updateUserProfile,
   deleteUser,
   signoutUser,
@@ -20,16 +19,18 @@ import ErrorMessage from "../components/ErrorMessage";
 import HomebtmImg from "../product_image/hair-set.jpg";
 
 function ProfileScreen() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newpassword, setNewpassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const [formData, setFormData] = useState({
+    userId: userInfo._id,
+    name: userInfo.name,
+    email: userInfo.email,
+    password: "",
+    newpassword: "",
+    confirmPassword: "",
+  });
+  const { name, email, password, newpassword, confirmPassword } = formData;
+
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const {
     loading: loadingUpdate,
@@ -52,50 +53,30 @@ function ProfileScreen() {
       dispatch(signoutUser());
     }
 
-    if (!user) {
+    if (successUpdate) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
-      dispatch(detailsUser(userInfo._id));
-    } else {
-      setName(user.name);
-      setEmail(user.email);
     }
-  }, [dispatch, userInfo._id, user, successDelete]);
+  }, [dispatch, userInfo._id, successDelete, successUpdate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
     if (password) {
-      if (newpassword.length > 0 && newpassword !== confirmPassword) {
-        alert("new password and confirm password does not match");
-      } else if (!name.match(nameRegex) && name.length > 0) {
-        alert("invalid name field");
-      } else if (!email.match(emailRegex) && email.length > 0) {
-        alert("invalid email address");
-      } else if (
-        (user.name === name || name.length === 0) &&
-        (user.email === email || email.length === 0) &&
-        newpassword.length === 0
-      ) {
-        alert("No field to update");
-      } else {
-        dispatch(
-          updateUserProfile({
-            userId: user._id,
-            name,
-            email,
-            password,
-            newpassword,
-          })
-        );
-      }
+      newpassword.length > 0 && newpassword !== confirmPassword
+        ? alert("new password and confirm password does not match")
+        : !name.match(nameRegex)
+        ? alert("invalid name field")
+        : !email.match(emailRegex)
+        ? alert("invalid email address")
+        : dispatch(updateUserProfile(formData));
     } else {
-      alert("Please fill out password field");
+      alert("Please fill password field");
     }
   };
 
   const deleteHandler = () => {
-    if (user.isAdmin) {
+    if (userInfo.isAdmin) {
       alert("You can't delete admin user");
     } else if (!password) {
       alert("Please fill out password field");
@@ -104,8 +85,20 @@ function ProfileScreen() {
         `Are you sure to delete your account? You will lose all the existing bookings.`
       )
     ) {
-      dispatch(deleteUser(user._id));
+      dispatch(deleteUser(userInfo._id));
     }
+  };
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]:
+        e.target.name === "name"
+          ? capitalize(e.target.value)
+          : e.target.name === "email"
+          ? e.target.value.toLowerCase()
+          : e.target.value,
+    });
   };
 
   const capitalize = (str) => {
@@ -139,13 +132,7 @@ function ProfileScreen() {
             </div>
             <small>please fill out the field which you want to update</small>
 
-            {loading ? (
-              <div className="signin_loading_box">
-                <LoadingBox />
-              </div>
-            ) : error ? (
-              <ErrorMessage>{error}</ErrorMessage>
-            ) : (
+            {
               <>
                 {loadingUpdate && (
                   <div className="signin_loading_box">
@@ -167,46 +154,49 @@ function ProfileScreen() {
                 <div className="profile_inputs">
                   <label htmlFor="name">Your Name</label>
                   <input
-                    type="name"
-                    id="name"
-                    placeholder="your name"
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
                     value={name}
-                    onChange={(e) => setName(capitalize(e.target.value))}
+                    onChange={onChange}
                   />
                   <label htmlFor="email">Email Address</label>
                   <input
                     type="email"
-                    id="email"
-                    placeholder="email address"
+                    name="email"
+                    placeholder="Email Address"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                    onChange={onChange}
                   />
 
                   <label htmlFor="newpassword">New Password</label>
                   <input
                     type="password"
-                    id="newpassword"
-                    placeholder="password"
+                    name="newpassword"
+                    placeholder="New Password"
                     autoComplete="off"
-                    onChange={(e) => setNewpassword(e.target.value)}
+                    value={newpassword}
+                    onChange={onChange}
                   />
-                  <label htmlFor="confirm-password">Confirm Password</label>
+                  <label htmlFor="confirmPassword">Confirm Password</label>
                   <input
                     type="password"
-                    id="confirm-password"
-                    placeholder="confirm password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
                     autoComplete="off"
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    value={confirmPassword}
+                    onChange={onChange}
                   />
 
                   <hr />
                   <label htmlFor="password">Password *</label>
                   <input
                     type="password"
-                    id="password"
-                    placeholder="password"
+                    name="password"
+                    placeholder="Password"
                     autoComplete="off"
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    onChange={onChange}
                   />
                 </div>
 
@@ -214,15 +204,13 @@ function ProfileScreen() {
                   <button type="submit">Update</button>
                 </div>
               </>
-            )}
+            }
           </form>
 
-          {user && (
-            <div className="profile_form_delete_button">
-              Delete your account? &nbsp;
-              <button onClick={() => deleteHandler()}>Click here</button>
-            </div>
-          )}
+          <div className="profile_form_delete_button">
+            Delete your account? &nbsp;
+            <button onClick={() => deleteHandler()}>Click here</button>
+          </div>
         </div>
 
         <div className="profile_screen_bottom_right">

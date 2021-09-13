@@ -62,21 +62,17 @@ function DateComponent() {
       ];
       let timeOccupied = times.map((ele) => ele.selectedTime);
       let availability = [];
-      if (timeOccupied) {
-        availability = openTimes.filter((ele) => !timeOccupied.includes(ele));
-      } else {
-        availability = openTimes;
-      }
+      availability = timeOccupied
+        ? openTimes.filter((ele) => !timeOccupied.includes(ele))
+        : openTimes;
+
       const today = new Date().toDateString();
-      if (today === selectedDate) {
-        const now = new Date().getTime();
-        let timeToShow = availability.filter(
-          (ele) => new Date(ele).getTime() > now
-        );
-        setAvailableTime(timeToShow);
-      } else {
-        setAvailableTime(availability);
-      }
+      const now = new Date().getTime();
+      setAvailableTime(
+        today === selectedDate
+          ? availability.filter((ele) => new Date(ele).getTime() > now)
+          : availability
+      );
     }
   }, [times, selectedDate]);
 
@@ -85,11 +81,13 @@ function DateComponent() {
     const weekend = new Date().getDay();
     let today = new Date().getTime();
     const aDay = 86400000;
+
     if (now > 17 || weekend === 0) {
       today += aDay;
     } else if (weekend === 6) {
       today += aDay * 2;
     }
+
     let dateArr = [];
     for (let i = 0; i < 14; i++) {
       if (

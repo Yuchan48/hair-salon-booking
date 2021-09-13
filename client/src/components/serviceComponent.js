@@ -15,7 +15,7 @@ import haircut from "../product_image/hairsalon.jpg";
 import makeup from "../product_image/makeup.jpg";
 import { selectServiceBooking } from "../redux/actions/bookingActions";
 
-function ServiceComponent(props) {
+function ServiceComponent(prps) {
   const bookingInfo = useSelector((state) => state.bookingInfo);
   const { service } = bookingInfo;
 
@@ -26,8 +26,6 @@ function ServiceComponent(props) {
     ["Make-up", makeup],
   ];
 
-  //const [photoSelection, setPhotoSelection] = useState(services.map(ele => ele[0] === service));
-  //const [serviceSelection, setServiceSelection] = useState(service)
   const dispatch = useDispatch();
 
   const selectServiceHandler = (ele) => {

@@ -1,13 +1,13 @@
 import * as actionTypes from "../constants/userConstants";
 import axios from "axios";
 
-export const signinUser = (email, password) => async (dispatch) => {
+export const signinUser = (userData) => async (dispatch) => {
   dispatch({
     type: actionTypes.USER_SIGNIN_REQUEST,
-    payload: { email, password },
+    payload: { userData },
   });
   try {
-    const { data } = await axios.post("/api/users/signin", { email, password });
+    const { data } = await axios.post("/api/users/signin", { userData });
     dispatch({ type: actionTypes.USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
@@ -27,17 +27,13 @@ export const signoutUser = () => (dispatch) => {
   window.location.href = "/signin";
 };
 
-export const registerUser = (name, email, password) => async (dispatch) => {
+export const registerUser = (userData) => async (dispatch) => {
   dispatch({
     type: actionTypes.USER_REGISTER_REQUEST,
-    payload: { email, password },
+    payload: { userData },
   });
   try {
-    const { data } = await axios.post("/api/users/register", {
-      name,
-      email,
-      password,
-    });
+    const { data } = await axios.post("/api/users/register", { userData });
     dispatch({ type: actionTypes.USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: actionTypes.USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
@@ -75,13 +71,16 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
   }
 };
 
-export const updateUserProfile = (user) => async (dispatch, getState) => {
-  dispatch({ type: actionTypes.USER_UPDATE_PROFILE_REQUEST, payload: user });
+export const updateUserProfile = (userData) => async (dispatch, getState) => {
+  dispatch({
+    type: actionTypes.USER_UPDATE_PROFILE_REQUEST,
+    payload: userData,
+  });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.put(`/api/users/profile/update`, user, {
+    const { data } = await axios.put(`/api/users/profile/update`, userData, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -123,13 +122,13 @@ export const listUsers = () => async (dispatch, getState) => {
   }
 };
 
-export const editUser = (user) => async (dispatch, getState) => {
-  dispatch({ type: actionTypes.USER_EDIT_REQUEST, payload: user });
+export const editUser = (userData) => async (dispatch, getState) => {
+  dispatch({ type: actionTypes.USER_EDIT_REQUEST, payload: userData });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.put(`/api/users/${user._id}`, user, {
+    const { data } = await axios.put(`/api/users/${userData._id}`, userData, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },

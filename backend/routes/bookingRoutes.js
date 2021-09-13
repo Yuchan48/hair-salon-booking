@@ -16,14 +16,9 @@ let transporter = nodemailer.createTransport({
 
 router.post("/", isAuth, async (req, res) => {
   try {
-    const { selectedDate, selectedTime, firstName, lastName, service } =
-      req.body;
+    console.log("req.body: ", req.body);
     const booking = new Booking({
-      firstName: firstName,
-      lastName: lastName,
-      selectedDate: selectedDate,
-      selectedTime: selectedTime,
-      service: service,
+      ...req.body,
       user: req.user._id,
     });
 

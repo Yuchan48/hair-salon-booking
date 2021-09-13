@@ -18,7 +18,6 @@ export const availabilityBooking = (dateSelection) => async (dispatch) => {
   }
 };
 
-
 export const saveBooking = (booking) => async (dispatch, getState) => {
     dispatch({ type: actionTypes.BOOKING_SAVE_REQUEST, payload: booking });
     try {

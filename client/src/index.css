@@ -27,7 +27,7 @@ table {
   max-width: 1200px;
   border-collapse: collapse;
   font-size: 15px;
-  background-color: #fff;
+  background-color: #f4f4f4;
 }
 
 table tbody tr:nth-of-type(odd) {
